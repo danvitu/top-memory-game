@@ -17,7 +17,7 @@ export default function App() {
       const imgNum = 8;
       const orientation = "landscape";
       const data = await fetch(
-        `http://api.unsplash.com/search/photos?client_id=${apiKey}&query=${searchQuery}&per_page=${imgNum}&orientation=${orientation}`
+        `https://api.unsplash.com/search/photos?client_id=${apiKey}&query=${searchQuery}&per_page=${imgNum}&orientation=${orientation}`
       );
       const dataImgs = await data.json();
       setUrlsToDisplay(dataImgs.results);
