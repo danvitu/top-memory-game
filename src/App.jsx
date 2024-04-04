@@ -27,6 +27,7 @@ export default function App() {
 
   function onClickChange(id) {
     if (imagesId.includes(id)) {
+      alert(`Game is over! Your score is: ${score}`);
       setImagesId([]);
       setScore(0);
       setBestScore(bestScore > score ? bestScore : score);
