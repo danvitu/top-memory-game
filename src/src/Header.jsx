@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 
-export default function Header({ score, bestScore }) {
+export default function Header({ score, bestScore, handleInputChange, search}) {
   return (
     <div className="header">
       <div className="game">
@@ -9,6 +9,17 @@ export default function Header({ score, bestScore }) {
           Get points by clicking on an image but do not click on any more than
           once!
         </p>
+        <div className="search">
+          <label htmlFor="search">Search theme for game:</label>
+          <input
+            value={search}
+            type="text"
+            name="search"
+            id="search"
+            onChange={handleInputChange}
+          ></input>
+        </div>
+        
       </div>
       <div className="scores">
         <p className="score">Score: {score} </p>

@@ -9,11 +9,13 @@ export default function App() {
   const [imagesId, setImagesId] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [search, setSearch] = useState("cats");
+
 
   useEffect(() => {
     const getUnsplashPhotos = async () => {
       const apiKey = "aKJVxHB-vz92X_JoKbX8LyqW8_2drqZOvGUTOXYsr28";
-      const searchQuery = "cats";
+      const searchQuery = search;
       const imgNum = 8;
       const orientation = "landscape";
       const data = await fetch(
@@ -23,7 +25,7 @@ export default function App() {
       setUrlsToDisplay(dataImgs.results);
     };
     getUnsplashPhotos().catch(console.error);
-  }, []);
+  }, [search]);
 
   function onClickChange(id) {
     if (imagesId.includes(id)) {
@@ -39,9 +41,14 @@ export default function App() {
     }
   }
 
+  function handleInputChange(e) {
+    setSearch(e.target.value);
+  }
+
+
   return (
     <>
-      <Header score={score} bestScore={bestScore} />
+      <Header score={score} bestScore={bestScore} handleInputChange={handleInputChange} search={search} />
       <Cards toDisplay={urlsToDisplay} onClickChange={onClickChange} />
     </>
   );
