@@ -1,0 +1,20 @@
+.images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  justify-items: center;
+}
+
+.image {
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.image:hover {
+  /* outline: solid rgb(126, 126, 126) 5px; */
+  box-shadow: 5px 5px 5px rgb(184, 184, 184);
+  transition: box-shadow 0.25s;
+  transform: scale(1.05);
+}

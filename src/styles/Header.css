@@ -1,0 +1,23 @@
+.header {
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.scores {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.score{
+font-size: 2rem;
+}
+
+
+p,
+h1 {
+  margin: 0;
+}
