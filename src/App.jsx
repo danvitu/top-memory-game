@@ -11,15 +11,14 @@ export default function App() {
   const [bestScore, setBestScore] = useState(0);
   const [search, setSearch] = useState("cats");
   const [inputValue, setInputValue] = useState("");
+  const imgNum = 8;
 
   useEffect(() => {
     const getUnsplashPhotos = async () => {
       const apiKey = "aKJVxHB-vz92X_JoKbX8LyqW8_2drqZOvGUTOXYsr28";
-      const searchQuery = search;
-      const imgNum = 8;
-      const orientation = "landscape";
+      const orientation = "squarish";
       const data = await fetch(
-        `https://api.unsplash.com/search/photos?client_id=${apiKey}&query=${searchQuery}&per_page=${imgNum}&orientation=${orientation}`
+        `https://api.unsplash.com/search/photos?client_id=${apiKey}&query=${search}&per_page=${imgNum}&orientation=${orientation}`
       );
       const dataImgs = await data.json();
       setUrlsToDisplay(dataImgs.results);
@@ -29,7 +28,11 @@ export default function App() {
 
   function onClickChange(id) {
     if (imagesId.includes(id)) {
-      alert(`Game is over! Your score is: ${score}`);
+      if (imagesId.length === imgNum) {
+        alert(`You win! ${score} from ${imgNum}`);
+      } else {
+        alert(`Game is over! Your score is: ${score}`);
+      }
       setImagesId([]);
       setScore(0);
       setBestScore(bestScore > score ? bestScore : score);
@@ -45,7 +48,7 @@ export default function App() {
     setInputValue(e.target.value);
   }
 
-  function searchingClick(){
+  function searchingClick() {
     setSearch(inputValue);
   }
 

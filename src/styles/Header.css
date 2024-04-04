@@ -12,10 +12,9 @@
   font-size: 1rem;
 }
 
-.score{
-font-size: 2rem;
+.score {
+  font-size: 2rem;
 }
-
 
 p,
 h1 {
@@ -30,4 +29,8 @@ h1 {
 .game {
   display: grid;
   gap: 10px;
+}
+
+.inputSearch {
+  padding-left: 5px;
 }

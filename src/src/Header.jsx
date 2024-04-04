@@ -4,7 +4,7 @@ export default function Header({
   score,
   bestScore,
   handleInputChange,
-  searchingClick
+  searchingClick,
 }) {
   return (
     <div className="header">
@@ -16,8 +16,16 @@ export default function Header({
         </p>
         <div className="search">
           <p>Theme for game:</p>
-          <input type="text" name="search" id="search" onChange={handleInputChange}></input>
-          <button onClick={searchingClick}>Search</button>
+          <input
+            className="inputSearch"
+            type="text"
+            name="search"
+            id="search"
+            onChange={handleInputChange}
+          ></input>
+          <button className="btn-search" onClick={searchingClick}>
+            Search
+          </button>
         </div>
       </div>
       <div className="scores">
