@@ -10,7 +10,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [search, setSearch] = useState("cats");
-
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     const getUnsplashPhotos = async () => {
@@ -42,13 +42,21 @@ export default function App() {
   }
 
   function handleInputChange(e) {
-    setSearch(e.target.value);
+    setInputValue(e.target.value);
   }
 
+  function searchingClick(){
+    setSearch(inputValue);
+  }
 
   return (
     <>
-      <Header score={score} bestScore={bestScore} handleInputChange={handleInputChange} search={search} />
+      <Header
+        score={score}
+        bestScore={bestScore}
+        handleInputChange={handleInputChange}
+        searchingClick={searchingClick}
+      />
       <Cards toDisplay={urlsToDisplay} onClickChange={onClickChange} />
     </>
   );

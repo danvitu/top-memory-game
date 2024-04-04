@@ -1,6 +1,11 @@
 import "../styles/Header.css";
 
-export default function Header({ score, bestScore, handleInputChange, search}) {
+export default function Header({
+  score,
+  bestScore,
+  handleInputChange,
+  searchingClick
+}) {
   return (
     <div className="header">
       <div className="game">
@@ -10,16 +15,10 @@ export default function Header({ score, bestScore, handleInputChange, search}) {
           once!
         </p>
         <div className="search">
-          <label htmlFor="search">Search theme for game:</label>
-          <input
-            value={search}
-            type="text"
-            name="search"
-            id="search"
-            onChange={handleInputChange}
-          ></input>
+          <p>Theme for game:</p>
+          <input type="text" name="search" id="search" onChange={handleInputChange}></input>
+          <button onClick={searchingClick}>Search</button>
         </div>
-        
       </div>
       <div className="scores">
         <p className="score">Score: {score} </p>
